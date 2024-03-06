@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { v4 as uuidv4 } from 'uuid';
-import { addContact } from './redux/contacts/ContactSlice';
+import { addContactAsync } from './redux/contacts/contactsOperations';
 import styles from './ContactForm.module.css';
 
 const ContactForm = () => {
@@ -19,7 +18,7 @@ const ContactForm = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    dispatch(addContact({ id: uuidv4(), name, number }));
+    dispatch(addContactAsync({ name, number }));
     setName('');
     setNumber('');
   };
