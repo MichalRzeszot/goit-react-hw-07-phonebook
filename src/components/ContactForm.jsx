@@ -5,7 +5,7 @@ import styles from './ContactForm.module.css';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [phone, setNumber] = useState('');
   const dispatch = useDispatch();
 
   const handleNameChange = event => {
@@ -18,7 +18,7 @@ const ContactForm = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    dispatch(addContactAsync({ name, number }));
+    dispatch(addContactAsync({ name, phone }));
     setName('');
     setNumber('');
   };
@@ -41,7 +41,7 @@ const ContactForm = () => {
         Number
         <input
           type="tel"
-          value={number}
+          value={phone}
           onChange={handleNumberChange}
           pattern="[0-9]+"
           title="Phone number must be digits only"
